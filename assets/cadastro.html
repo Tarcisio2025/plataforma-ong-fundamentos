@@ -109,5 +109,49 @@
   <footer>
     <p>&copy; 2025 ONG Exemplo</p>
   </footer>
+  
+  <!-- Máscaras de entrada (CPF, Telefone, CEP) + ajuda de validação -->
+  <script>
+    (function () {
+      const $ = (sel) => document.querySelector(sel);
+
+      function maskCPF(v) {
+        return v.replace(/\D/g, "")
+                .replace(/(\d{3})(\d)/, "$1.$2")
+                .replace(/(\d{3})(\d)/, "$1.$2")
+                .replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+      }
+      function maskTEL(v) {
+        v = v.replace(/\D/g, "");
+        if (v.length > 10) return v.replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
+        return v.replace(/(\d{2})(\d{4})(\d{4})/, "($1) $2-$3");
+      }
+      function maskCEP(v) {
+        return v.replace(/\D/g, "")
+                .replace(/(\d{5})(\d{1,3}).*/, "$1-$2");
+      }
+
+      const cpf = $("#cpf");
+      const tel = $("#telefone");
+      const cep = $("#cep");
+      const uf  = $("#estado");
+
+      cpf && cpf.addEventListener("input", (e) => e.target.value = maskCPF(e.target.value));
+      tel && tel.addEventListener("input", (e) => e.target.value = maskTEL(e.target.value));
+      cep && cep.addEventListener("input", (e) => e.target.value = maskCEP(e.target.value));
+      uf  && uf.addEventListener("input", (e) => e.target.value = e.target.value.toUpperCase());
+
+      // Ajuda: evita envio se houver inválidos e foca no primeiro erro
+      const form = document.getElementById("form-cadastro");
+      form.addEventListener("submit", function (e) {
+        if (!form.checkValidity()) {
+          e.preventDefault();
+          const firstInvalid = form.querySelector(":invalid");
+          firstInvalid && firstInvalid.focus();
+          alert("Há campos inválidos ou incompletos. Por favor, revise os destaques.");
+        }
+      }, false);
+    })();
+  </script>
 </body>
 </html>

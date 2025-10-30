@@ -81,6 +81,20 @@
     <footer>
         <p>&copy; 2025 ONG Exemplo</p>
     </footer>
-    
+    <script>
+        const filtro = document.getElementById("filtro");
+        const cards = document.querySelectorAll(".card");
+
+        filtro.addEventListener("change", () => {
+        const valor = filtro.value;
+        cards.forEach(card => {
+            if (valor === "" || card.classList.contains(valor)) {
+            card.style.display = "block";
+            } else {
+            card.style.display = "none";
+            }
+        });
+        });
+    </script>
 </body>
 </html>
