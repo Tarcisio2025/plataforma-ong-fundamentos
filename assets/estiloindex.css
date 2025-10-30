@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0; 
+}
+
+.hero {
+    height: 80vh;
+    background-image: url(img/gato-y-perro-posando-tranquilamente-600nw-2632471447.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero {
+    padding: 100px 50px;
+}
+.txt-hero h1 {
+    font-size: 4em;
+    font-weight: 100;
+    
+}
+
+.txt-hero h1 span {
+    display: block;
+    font-weight: 800;
+}
+.txt-hero p {
+    font-size: 20px;
+    font-weight: 300;
+    margin: 20px 0;
+} 
+
+.txt-hero p span {
+    display: block;
+}
+
+
+.sobre {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 50vh;
+    background-color: #e3e3e3;
+}
+
+.txt-sobre h2 {
+    font-size: 2.6em;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: rgba(245, 163, 104, 0.988);
+}
+
+.txt-sobre p {
+    font-size: 20px;
+    margin: 0 80px;
+}
+
+.contato {
+    background-color: #e3e3e3;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.txt-contato h2 {
+    font-size: 2.6em;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: rgba(245, 163, 104, 0.988);
+}
+
+.txt-contato p {
+    font-size: 20px;
+    margin: 0 80px;
+}
+
+footer {
+    background-color: #e3e3e3;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center; 
+}
