@@ -16,6 +16,11 @@
         padding: var(--space); 
         background: #f6f7f9; 
     }
+    .cabeca{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
     main { 
         padding: var(--space); 
         max-width: 900px; 
