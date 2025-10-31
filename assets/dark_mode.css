@@ -1,0 +1,82 @@
+header .theme-controls {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+header button {
+  font: inherit;
+  font-size: 0.8rem;
+}
+
+header .btn-contrast,
+header .btn-dark {
+  background: #0d6efd;
+  color: #fff;
+  border: none;
+  width: auto;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 00;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  margin-left: 8px;
+}
+
+header .btn-contrast:hover,
+header .btn-dark:hover {
+  background: #0b5ed7;
+  transform: translateY(-2px);
+}
+
+header .btn-contrast:focus,
+header .btn-dark:focus {
+  outline: 3px solid #0d6efd;
+  outline-offset: 3px;
+}
+
+/* ===== MODO ESCURO ===== */
+.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+.dark-mode header,
+.dark-mode footer {
+  background-color: #1e1e1e;
+}
+
+.dark-mode a {
+  color: #9cd2ff;
+}
+
+.dark-mode .btn-contrast,
+.dark-mode .btn-dark {
+  background: #333;
+  color: #fff;
+  border: 1px solid #888;
+}
+
+/* ===== ALTO CONTRASTE ===== */
+.high-contrast {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+.high-contrast a,
+.high-contrast button {
+  color: #000 !important;
+  background: #ff0 !important;
+  border: 2px solid #000;
+}
+
+.high-contrast header,
+.high-contrast footer {
+  background: #000 !important;
+}
+
+.high-contrast .btn-contrast,
+.high-contrast .btn-dark {
+  background: #ff0 !important;
+  color: #000 !important;
+}

@@ -1,16 +1,24 @@
 <!DOCTYPE html>
-<html lang="ptbr">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="max-age=31536000">
     <title>Adoção de pets</title>
     <link rel="stylesheet" href="styleprojeto.css">
+    <link rel="stylesheet" href="acessibilidade.css">
+    <link rel="stylesheet" href="dark_mode.css">
 </head>
 <body>
-    <header>
-        <h1>Animais Para Doações</h1>    
+    <a hrf="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+    <header class="cabeca">
+      <h1>Animais Para Doações</h1>
+      <div class="theme-controls">
+        <button id="toggle-contrast" class="btn-contrast" aria-pressed="false">Alto contraste</button>
+        <button id="toggle-dark" class="btn-dark" aria-pressed="false">Modo escuro</button>
+      </div>  
     </header>
-    <main>
+    <main id="conteudo-principal">
         <div class="filtro">
             <section>
                 <label for="filtro">Filtro</label>
@@ -23,7 +31,7 @@
        </div>
        <div class="grid">
             <div class="card cachorro">
-                <img src="./img/istockphoto-513392620-612x612.jpg" alt="Foto do pitbull">
+                <img src="./img/cachorro.webp" alt="Foto do pitbull" loading="lazy">
                 <div class="teste">
                     <h2>Thor</h2>
                     <p>Raça: Pitbull</p>
@@ -32,7 +40,7 @@
                 </div>
             </div>
             <div class="card cachorro">
-                <img src="./img/istockphoto-513392620-612x612.jpg" alt="Foto do pitbull">
+                <img src="./img/cachorro.webp" alt="Foto do pitbull" loading="lazy">
                 <div>
                     <h2>Zeus</h2>
                     <p>Raça: Pitbull</p>
@@ -41,7 +49,7 @@
                 </div>
             </div>
             <div class="card cachorro">
-                <img src="./img/istockphoto-513392620-612x612.jpg" alt="Foto do pitbull">
+                <img src="./img/cachorro.webp" alt="Foto do pitbull" loading="lazy">
                 <div>
                     <h2>Doki</h2>
                     <p>Raça: Pitbull</p>
@@ -50,7 +58,7 @@
                 </div>
             </div>
             <div class="card gato">
-                <img src="./img/vida-de-gato.jpg" alt="Foto de um Gato">
+                <img src="./img/gato.webp" alt="Foto de um Gato" loading="lazy">
                 <div>
                     <h2>Bidu</h2>
                     <p>Raça: Angora</p>
@@ -59,7 +67,7 @@
                 </div>
             </div>
             <div class="card gato">
-                <img src="./img/vida-de-gato.jpg" alt="Foto de um Gato">
+                <img src="./img/gato.webp" alt="Foto de um Gato" loading="lazy">
                 <div>
                     <h2>LiLi</h2>
                     <p>Raça: Angora</p>
@@ -68,7 +76,7 @@
                 </div>
             </div>
             <div class="card gato">
-                <img src="./img/vida-de-gato.jpg" alt="Foto de um Gato">
+                <img src="./img/gato.webp" alt="Foto de um Gato" loading="lazy">
                 <div>
                     <h2>Nina</h2>
                     <p>Raça: Angora</p>
@@ -94,6 +102,33 @@
             card.style.display = "none";
             }
         });
+        });
+
+        const contrastBtn = document.getElementById("toggle-contrast");
+        const darkBtn = document.getElementById("toggle-dark");
+
+        if (localStorage.getItem("highContrast") === "true") {
+            document.body.classList.add("high-contrast");
+            contrastBtn.setAttribute("aria-pressed", "true");
+        }
+
+        if (localStorage.getItem("darkMode") === "true") {
+            document.body.classList.add("dark-mode");
+            darkBtn.setAttribute("aria-pressed", "true");
+        }
+
+        contrastBtn.addEventListener("click", () => {
+            document.body.classList.toggle("high-contrast");
+            const active = document.body.classList.contains("high-contrast");
+            contrastBtn.setAttribute("aria-pressed", active);
+            localStorage.setItem("highContrast", active);
+        });
+
+        darkBtn.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+            const active = document.body.classList.contains("dark-mode");
+            darkBtn.setAttribute("aria-pressed", active);
+            localStorage.setItem("darkMode", active);
         });
     </script>
 </body>
