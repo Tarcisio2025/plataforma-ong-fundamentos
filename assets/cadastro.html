@@ -7,11 +7,18 @@
   <title>ONG Exemplo — Cadastro</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="acessibilidade.css">
+  <link rel="stylesheet" href="dark_mode.css">
 </head>
 <body>
   <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
   <header>
-    <h1>Cadastro</h1>
+    <div class="cabeca">
+      <h1>Cadastro</h1>
+      <div class="theme-controls">
+        <button id="toggle-contrast" class="btn-contrast" aria-pressed="false">Alto contraste</button>
+        <button id="toggle-dark" class="btn-dark" aria-pressed="false">Modo escuro</button>
+      </div>
+    </div>
     <nav aria-label="Navegação principal">
       <ul>
         <li><a href="index.html">Início</a></li>
@@ -154,6 +161,19 @@
         }
       }, false);
     })();
+
+    const contrastBtn = document.getElementById("toggle-contrast");
+    const darkBtn = document.getElementById("toggle-dark");
+
+    contrastBtn.addEventListener("click", () => {
+      document.body.classList.toggle("high-contrast");
+      contrastBtn.setAttribute("aria-pressed", document.body.classList.contains("high-contrast"));
+    });
+
+    darkBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      darkBtn.setAttribute("aria-pressed", document.body.classList.contains("dark-mode"));
+    });
   </script>
 </body>
 </html>

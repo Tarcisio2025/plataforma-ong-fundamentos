@@ -9,6 +9,12 @@ header, footer{
     background: #f6f7f9; 
 }
 
+.cabeca {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .filtro {
     text-align: center;
     margin-top: 1rem;
@@ -24,6 +30,16 @@ select {
     border: 1px solid #ccc;
     border-radius: 0.5rem;
     font-size: 1rem;
+}
+
+body.dark-mode .grid {
+    background-color: #000;
+    color: #000;
+}
+
+body.high-contrast .grid {
+    background-color: #000;
+    color: #000;
 }
 
 .grid {

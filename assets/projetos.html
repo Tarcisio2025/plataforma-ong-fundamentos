@@ -6,11 +6,16 @@
     <title>Adoção de pets</title>
     <link rel="stylesheet" href="styleprojeto.css">
     <link rel="stylesheet" href="acessibilidade.css">
+    <link rel="stylesheet" href="dark_mode.css">
 </head>
 <body>
     <a hrf="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
-    <header>
-        <h1>Animais Para Doações</h1>    
+    <header class="cabeca">
+      <h1>Animais Para Doações</h1>
+      <div class="theme-controls">
+        <button id="toggle-contrast" class="btn-contrast" aria-pressed="false">Alto contraste</button>
+        <button id="toggle-dark" class="btn-dark" aria-pressed="false">Modo escuro</button>
+      </div>  
     </header>
     <main id="conteudo-principal">
         <div class="filtro">
@@ -96,6 +101,33 @@
             card.style.display = "none";
             }
         });
+        });
+
+        const contrastBtn = document.getElementById("toggle-contrast");
+        const darkBtn = document.getElementById("toggle-dark");
+
+        if (localStorage.getItem("highContrast") === "true") {
+            document.body.classList.add("high-contrast");
+            contrastBtn.setAttribute("aria-pressed", "true");
+        }
+
+        if (localStorage.getItem("darkMode") === "true") {
+            document.body.classList.add("dark-mode");
+            darkBtn.setAttribute("aria-pressed", "true");
+        }
+
+        contrastBtn.addEventListener("click", () => {
+            document.body.classList.toggle("high-contrast");
+            const active = document.body.classList.contains("high-contrast");
+            contrastBtn.setAttribute("aria-pressed", active);
+            localStorage.setItem("highContrast", active);
+        });
+
+        darkBtn.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+            const active = document.body.classList.contains("dark-mode");
+            darkBtn.setAttribute("aria-pressed", active);
+            localStorage.setItem("darkMode", active);
         });
     </script>
 </body>
